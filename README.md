@@ -10,7 +10,7 @@ npm install mpa-rspack-plugin -D
 ```
 
 ## 使用
-
+插件会将 src/pages 目录下 */index.[jt]sx? 文件作为 entry 进行打包，同时为每个入口文件生成相应的 HTML 文件。
 ```js
 const MpaRspackPlugin = require('mpa-rspack-plugin')
 
