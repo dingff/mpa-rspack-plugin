@@ -1,4 +1,5 @@
 # mpa-rspack-plugin
+Mpa plugin for Rspack
 
 [![NPM version](https://img.shields.io/npm/v/mpa-rspack-plugin.svg?style=flat)](https://npmjs.org/package/mpa-rspack-plugin)
 
