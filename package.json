@@ -12,7 +12,12 @@
     "prepublishOnly": "father doctor && npm run build",
     "release": "npm run build && release-it --only-version"
   },
-  "keywords": [],
+  "keywords": [
+    "rspack",
+    "mpa",
+    "plugin"
+  ],
+  "repository": "dingff/mpa-rspack-plugin",
   "authors": [
     "dingff0923@foxmail.com"
   ],
