@@ -37,7 +37,7 @@ new MpaRspackPlugin({
   /**
    * 需要全局导入的依赖
    * 如 globalImport: ['./src/global.scss']，将转换为 import 'xxxxxx/src/global.scss';
-   * 使用 './' 或 'src' 开头来传递相对路径，当然绝对路径也是允许的
+   * 使用 './' 或 'src' 开头来传递相对路径，或者直接传递绝对路径
    */
   globalImport: []
 })
