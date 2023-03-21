@@ -78,7 +78,7 @@ ${renderer}
       if (filename.startsWith('.')) return
       const indexFilePath = getIndexFilePath(join(root, filename))
       if (indexFilePath) {
-        const entryName = filename.toLowerCase()
+        const entryName = this.userOptions.lowerCase === true ? filename.toLowerCase() : filename
         entry[entryName] = {
           import: [indexFilePath],
         }

@@ -29,4 +29,5 @@ export type Options = {
   html?: BuiltinsHtml;
   mountElementId?: string;
   globalImport?: string[];
+  lowerCase?: boolean;
 }

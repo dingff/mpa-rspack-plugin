@@ -31,14 +31,17 @@ new MpaRspackPlugin({
    */
   html: {},
   /**
-   * 页面渲染时，挂载到节点的 id，默认是 root
+   * 页面渲染时，挂载到节点的 id，默认是 'root'
    */
   mountElementId: 'root',
   /**
    * 需要全局导入的依赖
-   * 如 globalImport: ['./src/global.scss']，将转换为 import 'xxxxxx/src/global.scss';
-   * 使用 './' 或 'src' 开头来传递相对路径，或者直接传递绝对路径
+   * 如: globalImport: ['./src/global.scss']
    */
-  globalImport: []
+  globalImport: [],
+  /**
+   * 将输出的 HTML 文件名转换为小写，默认为 false
+   */
+  lowerCase: false,
 })
 ```
