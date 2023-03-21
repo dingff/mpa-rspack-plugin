@@ -37,7 +37,7 @@ class MpaRspackPlugin {
     Object.entries(entry).forEach(([entryName, config]: [string, any]) => {
       const filePath = join(this.context, this.tempDirectory, 'mpa', `${entryName}.jsx`)
       const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
-        const path = /^(.\/|src)/.test(curr) ? join(this.context, curr) : curr
+        const path = curr.startsWith('./') ? join(this.context, curr) : curr
         return `${acc}\nimport '${path}';`.trimStart()
       }, '') || ''
       const rootElement = `document.getElementById('${this.userOptions.mountElementId}')`
