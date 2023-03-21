@@ -7,7 +7,7 @@ const fs = require('fs')
 const PLUGIN_NAME = 'MpaRspackPlugin'
 
 class MpaRspackPlugin {
-  tempDirectory = '.rspack'
+  tempDirectory = 'node_modules/.mpa'
   userOptions: Options = {}
   /** 基础目录 */
   context = ''
@@ -27,7 +27,7 @@ class MpaRspackPlugin {
     })
   }
   createTempFile(entry: EntryObject) {
-    rmdirSync(join(this.context, this.tempDirectory, 'mpa'), {
+    rmdirSync(join(this.context, this.tempDirectory), {
       force: true,
       recursive: true,
     })
@@ -35,7 +35,7 @@ class MpaRspackPlugin {
     const versionReg = /(~|\\^)?18/
     const isReact18 = versionReg.test(reactVersion)
     Object.entries(entry).forEach(([entryName, config]: [string, any]) => {
-      const filePath = join(this.context, this.tempDirectory, 'mpa', `${entryName}.jsx`)
+      const filePath = join(this.context, this.tempDirectory, `${entryName}.jsx`)
       const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
         const path = curr.startsWith('./') ? join(this.context, curr) : curr
         return `${acc}\nimport '${path}';`.trimStart()
