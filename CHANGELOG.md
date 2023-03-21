@@ -1,5 +1,12 @@
 
 
+## [1.1.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.1.0...1.1.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* modify tempDirectory ([7887d88](https://github.com/dingff/mpa-rspack-plugin/commit/7887d884263acc74c5b56d28feddd83093af4657))
+
 # [1.1.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.0.2...1.1.0) (2023-03-21)
 
 
