@@ -46,7 +46,7 @@ class MpaRspackPlugin {
         ? `ReactDOM.createRoot(${rootElement}).render(<App />);`
         : `ReactDOM.render(<App />, ${rootElement});`
       const tpl = `
-// DO NOT CHANGE IT MANUALLY!'
+// DO NOT CHANGE IT MANUALLY!
 import React from 'react';
 import ReactDOM from '${reactDOMSource}';
 import App from '${config.import[0]}';
