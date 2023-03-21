@@ -1,5 +1,12 @@
 
 
+## [1.1.2](https://github.com/dingff/mpa-rspack-plugin/compare/1.1.1...1.1.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* amend annotation ([56a45d7](https://github.com/dingff/mpa-rspack-plugin/commit/56a45d737b9b33cc7c317114546e6174639c54ac))
+
 ## [1.1.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.1.0...1.1.1) (2023-03-21)
 
 
