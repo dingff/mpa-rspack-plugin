@@ -1,5 +1,19 @@
 
 
+# [1.2.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.1.2...1.2.0) (2023-03-22)
+
+
+### Bug Fixes
+
+* remove unnecessary iteration ([39b9b29](https://github.com/dingff/mpa-rspack-plugin/commit/39b9b291f6f25991cbddeb12fb210534fca1b7c6))
+
+
+### Features
+
+* support layout ([9245b50](https://github.com/dingff/mpa-rspack-plugin/commit/9245b5096d0acf8cba42a83c8d0efa960e7a19c1))
+* support page config ([b1dd60e](https://github.com/dingff/mpa-rspack-plugin/commit/b1dd60ef29e97d8c37adef3f11ec28df3294247f))
+* use existSync to find valid path ([58bed6b](https://github.com/dingff/mpa-rspack-plugin/commit/58bed6b7f58cff63e234c7f58163486a34a85110))
+
 ## [1.1.2](https://github.com/dingff/mpa-rspack-plugin/compare/1.1.1...1.1.2) (2023-03-21)
 
 
