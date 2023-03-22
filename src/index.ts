@@ -50,19 +50,20 @@ class MpaRspackPlugin {
     const reactVersion = readJsonSync(join(this.context, 'package.json')).dependencies.react
     const versionReg = /(~|\\^)?18/
     const isReact18 = versionReg.test(reactVersion)
+    const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
+      return `${acc}\nimport '${this.getValidPathForEntry(curr)}';`.trimStart()
+    }, '') || ''
+    const { layout } = this.userOptions
+    const layoutImport = layout ? `import Layout from '${this.getValidPathForEntry(layout)}';` : ''
+    const layoutJSX = layout ? '<Layout><App /></Layout>' : '<App />'
+    const rootElement = `document.getElementById('${this.userOptions.mountElementId}')`
+    const reactDOMSource = isReact18 ? 'react-dom/client' : 'react-dom'
+    const renderer = isReact18
+      ? `ReactDOM.createRoot(${rootElement}).render(${layoutJSX});`
+      : `ReactDOM.render(${layoutJSX}, ${rootElement});`
+    // 遍历生成文件
     Object.entries(entry).forEach(([entryName, config]: [string, any]) => {
       const filePath = join(this.context, this.tempDirectory, `${entryName}.jsx`)
-      const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
-        return `${acc}\nimport '${this.getValidPathForEntry(curr)}';`.trimStart()
-      }, '') || ''
-      const { layout } = this.userOptions
-      const layoutImport = layout ? `import Layout from '${this.getValidPathForEntry(layout)}';` : ''
-      const layoutJSX = layout ? '<Layout><App /></Layout>' : '<App />'
-      const rootElement = `document.getElementById('${this.userOptions.mountElementId}')`
-      const reactDOMSource = isReact18 ? 'react-dom/client' : 'react-dom'
-      const renderer = isReact18
-        ? `ReactDOM.createRoot(${rootElement}).render(${layoutJSX});`
-        : `ReactDOM.render(${layoutJSX}, ${rootElement});`
       const tpl = `
 // DO NOT CHANGE IT MANUALLY!
 import React from 'react';
