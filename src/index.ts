@@ -35,7 +35,12 @@ class MpaRspackPlugin {
     return config
   }
   getValidPathForEntry(path: string) {
-    return path.startsWith('./') ? join(this.context, path) : path
+    let validPath = path
+    const absPath = join(this.context, path)
+    if (existsSync(absPath)) {
+      validPath = absPath
+    }
+    return validPath
   }
   createTempFile(entry: EntryObject) {
     rmdirSync(join(this.context, this.tempDirectory), {
