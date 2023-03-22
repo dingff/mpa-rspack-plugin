@@ -45,7 +45,7 @@ new MpaRspackPlugin({
    */
   lowerCase: false,
   /**
-   * 全局入口的路径
+   * 全局入口组件的路径
    * 如: './src/layout.jsx'
    */
   layout: ''
