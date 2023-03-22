@@ -1,8 +1,7 @@
-import { EntryObject, BuiltinsHtml, Options } from './types'
+import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
 
-const { outputFileSync, readdirSync, existsSync, rmdirSync } = require('fs-extra')
+const { outputFileSync, readdirSync, existsSync, rmdirSync, readJsonSync } = require('fs-extra')
 const { join } = require('path')
-const fs = require('fs')
 
 const PLUGIN_NAME = 'MpaRspackPlugin'
 
@@ -26,12 +25,21 @@ class MpaRspackPlugin {
       compiler.options.builtins.html = html
     })
   }
+  /** 获取页面级配置 */
+  getPageConfig(path: string) {
+    const filePath = join(path, '../config.json')
+    let config: PageHtml = {}
+    if (existsSync(filePath)) {
+      config = readJsonSync(filePath)
+    }
+    return config
+  }
   createTempFile(entry: EntryObject) {
     rmdirSync(join(this.context, this.tempDirectory), {
       force: true,
       recursive: true,
     })
-    const reactVersion = JSON.parse(fs.readFileSync(join(this.context, 'package.json'), 'utf8')).dependencies.react
+    const reactVersion = readJsonSync(join(this.context, 'package.json')).dependencies.react
     const versionReg = /(~|\\^)?18/
     const isReact18 = versionReg.test(reactVersion)
     Object.entries(entry).forEach(([entryName, config]: [string, any]) => {
@@ -78,19 +86,29 @@ ${renderer}
       if (filename.startsWith('.')) return
       const indexFilePath = getIndexFilePath(join(root, filename))
       if (indexFilePath) {
-        const entryName = this.userOptions.lowerCase === true ? filename.toLowerCase() : filename
+        const pageConfig = this.getPageConfig(indexFilePath)
+        let entryName = this.userOptions.lowerCase === true ? filename.toLowerCase() : filename
+        if (pageConfig.filename) {
+          entryName = pageConfig.filename.slice(0, -5)
+        }
         entry[entryName] = {
           import: [indexFilePath],
+        }
+        if (pageConfig.template) {
+          pageConfig.template = join(indexFilePath, '../', pageConfig.template)
         }
         html.push({
           template: join(__dirname, 'index.ejs'),
           ...this.userOptions.html,
+          ...pageConfig,
           templateParameters: {
             ...this.userOptions.html?.templateParameters,
+            ...pageConfig.templateParameters,
             mountElementId: this.userOptions.mountElementId as string,
           },
           filename: `${entryName}.html`,
           chunks: [entryName],
+          excludedChunks: undefined,
         })
       }
     })

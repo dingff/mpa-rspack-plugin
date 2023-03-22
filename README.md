@@ -26,7 +26,8 @@ module.exports = {
 ```js
 new MpaRspackPlugin({
   /**
-   * 与 builtins.html 一致
+   * 透传给 builtins.html，但 chunks 和 excludedChunks 由插件控制，不允许修改
+   * 此处配置将作用于每个页面，因此 filename 不可用，可使用页面级配置修改
    * https://www.rspack.dev/zh/config/builtins.html#builtinshtml
    */
   html: {},
@@ -40,8 +41,15 @@ new MpaRspackPlugin({
    */
   globalImport: [],
   /**
-   * 将输出的 HTML 文件名转换为小写，默认为 false
+   * 是否将输出的 HTML 文件名转换为小写，默认为 false
    */
   lowerCase: false,
 })
+```
+### 页面级配置
+约定通过入口文件同层级的 config.json 进行声明。
+```json
+{
+  "filename": "xxxx.html",
+}
 ```
