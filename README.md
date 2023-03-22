@@ -47,7 +47,7 @@ new MpaRspackPlugin({
 })
 ```
 ### 页面级配置
-约定通过入口文件同层级的 config.json 进行声明。
+约定通过入口文件同层级的 config.json 进行声明，页面级配置将与全局 html 配置合并来生成该页面最终的配置。
 ```json
 {
   "filename": "xxxx.html",
