@@ -34,6 +34,9 @@ class MpaRspackPlugin {
     }
     return config
   }
+  getValidPathForEntry(path: string) {
+    return path.startsWith('./') ? join(this.context, path) : path
+  }
   createTempFile(entry: EntryObject) {
     rmdirSync(join(this.context, this.tempDirectory), {
       force: true,
@@ -45,20 +48,22 @@ class MpaRspackPlugin {
     Object.entries(entry).forEach(([entryName, config]: [string, any]) => {
       const filePath = join(this.context, this.tempDirectory, `${entryName}.jsx`)
       const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
-        const path = curr.startsWith('./') ? join(this.context, curr) : curr
-        return `${acc}\nimport '${path}';`.trimStart()
+        return `${acc}\nimport '${this.getValidPathForEntry(curr)}';`.trimStart()
       }, '') || ''
+      const { layout } = this.userOptions
+      const layoutImport = layout ? `import Layout from '${this.getValidPathForEntry(layout)}';` : ''
+      const layoutJSX = layout ? '<Layout><App /></Layout>' : '<App />'
       const rootElement = `document.getElementById('${this.userOptions.mountElementId}')`
       const reactDOMSource = isReact18 ? 'react-dom/client' : 'react-dom'
       const renderer = isReact18
-        ? `ReactDOM.createRoot(${rootElement}).render(<App />);`
-        : `ReactDOM.render(<App />, ${rootElement});`
+        ? `ReactDOM.createRoot(${rootElement}).render(${layoutJSX});`
+        : `ReactDOM.render(${layoutJSX}, ${rootElement});`
       const tpl = `
 // DO NOT CHANGE IT MANUALLY!
 import React from 'react';
 import ReactDOM from '${reactDOMSource}';
-import App from '${config.import[0]}';
-${globalImport && `${globalImport}\n`}
+import App from '${config.import[0]}';${layoutImport && `\n${layoutImport}`}
+${globalImport}
 ${renderer}
       `.trimStart()
       outputFileSync(filePath, tpl)

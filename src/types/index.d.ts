@@ -34,4 +34,5 @@ export type Options = {
   mountElementId?: string;
   globalImport?: string[];
   lowerCase?: boolean;
+  layout?: string;
 }

@@ -26,7 +26,7 @@ module.exports = {
 ```js
 new MpaRspackPlugin({
   /**
-   * 透传给 builtins.html，但 chunks 和 excludedChunks 由插件控制，不允许修改
+   * 透传给 builtins.html，注意 chunks 和 excludedChunks 由插件控制，不允许修改
    * 此处配置将作用于每个页面，因此 filename 不可用，可使用页面级配置修改
    * https://www.rspack.dev/zh/config/builtins.html#builtinshtml
    */
@@ -36,20 +36,32 @@ new MpaRspackPlugin({
    */
   mountElementId: 'root',
   /**
-   * 需要全局导入的依赖
-   * 如: globalImport: ['./src/global.scss']
+   * 需要全局引入的依赖（如果使用了 layout，推荐在 layout 中自行引入）
+   * 如: ['./src/global.scss']
    */
   globalImport: [],
   /**
    * 是否将输出的 HTML 文件名转换为小写，默认为 false
    */
   lowerCase: false,
+  /**
+   * 全局入口的路径
+   * 如: './src/layout.jsx'
+   */
+  layout: ''
 })
 ```
 ### 页面级配置
-约定通过入口文件同层级的 config.json 进行声明，页面级配置将与全局 html 配置合并来生成该页面最终的配置。
+在页面组件同层级创建 config.json 进行声明，页面级配置将与全局 html 配置合并来生成该页面最终的配置。
 ```json
 {
   "filename": "xxxx.html",
+}
+```
+### layout
+layout 组件会包裹每个页面级组件，可在此引入全局依赖。
+```js
+export default function Layout(props) {
+  return props.children
 }
 ```
