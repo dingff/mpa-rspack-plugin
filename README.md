@@ -10,7 +10,7 @@ npm install mpa-rspack-plugin -D
 ```
 
 ## 使用
-插件会将 src/pages 目录下 */index.[jt]sx? 文件作为 entry 进行打包，同时为每个入口文件生成相应的 HTML 文件。
+插件会将 `src/pages` 目录下 `*/index.[jt]sx?` 文件作为 entry 进行打包，同时为每个入口文件生成相应的 HTML 文件。
 ```js
 const MpaRspackPlugin = require('mpa-rspack-plugin')
 
@@ -26,9 +26,9 @@ module.exports = {
 ```js
 new MpaRspackPlugin({
   /**
-   * 透传给 builtins.html，注意 chunks 和 excludedChunks 由插件控制，不允许修改
+   * 透传给 builtins.html，其中 chunks 和 excludedChunks 由插件控制，不允许修改
    * 此处配置将作用于每个页面，因此 filename 不可用，可使用页面级配置修改
-   * https://www.rspack.dev/zh/config/builtins.html#builtinshtml
+   * 参考 https://www.rspack.dev/zh/config/builtins.html#builtinshtml
    */
   html: {},
   /**
@@ -36,7 +36,7 @@ new MpaRspackPlugin({
    */
   mountElementId: 'root',
   /**
-   * 需要全局引入的依赖（如果使用了 layout，推荐在 layout 中自行引入）
+   * 可在此引入全局依赖
    * 如: ['./src/global.scss']
    */
   globalImport: [],
@@ -45,23 +45,23 @@ new MpaRspackPlugin({
    */
   lowerCase: false,
   /**
-   * 全局入口组件的路径
+   * 布局组件的路径
    * 如: './src/layout.jsx'
    */
   layout: ''
 })
 ```
 ### 页面级配置
-在页面组件同层级创建 config.json 进行声明，页面级配置将与全局 html 配置合并来生成该页面最终的配置。
+在页面组件同层级创建 `config.json` 进行声明，页面级配置将与全局 `html` 配置合并来生成该页面最终的配置。
 ```json
 {
   "filename": "xxxx.html",
 }
 ```
 ### layout
-layout 组件会包裹每个页面级组件，可在此引入全局依赖。
+页面组件会作为子组件传入 `Layout` 组件，可在此引入全局依赖。
 ```js
-export default function Layout(props) {
-  return props.children
+export default function Layout({ children }) {
+  return children
 }
 ```
