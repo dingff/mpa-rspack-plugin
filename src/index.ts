@@ -9,6 +9,7 @@ const PLUGIN_NAME = 'MpaRspackPlugin'
 class MpaRspackPlugin {
   tempDirectory = 'node_modules/.mpa'
   userOptions: Options = {}
+  isOpen = false
   /** 基础目录 */
   context = ''
   constructor(options: Options) {
@@ -27,7 +28,8 @@ class MpaRspackPlugin {
     })
     compiler.hooks.done.tap(PLUGIN_NAME, () => {
       const target = this.userOptions.open
-      if (compiler.options.mode === 'production' || !target) return
+      if (compiler.options.mode === 'production' || !target || this.isOpen) return
+      this.isOpen = true
       open(target)
     })
   }
