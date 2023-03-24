@@ -48,7 +48,11 @@ new MpaRspackPlugin({
    * 布局组件的路径
    * 如: './src/layout.jsx'
    */
-  layout: ''
+  layout: '',
+  /**
+   * devServer 启动后在浏览器默认打开的地址
+   */
+  open: '',
 })
 ```
 ### 页面级配置

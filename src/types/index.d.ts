@@ -54,4 +54,8 @@ export type Options = {
    * 如: './src/layout.jsx'
    */
   layout?: string;
+  /**
+   * devServer 启动后在浏览器默认打开的地址
+   */
+  open?: string;
 }

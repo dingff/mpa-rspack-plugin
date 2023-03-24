@@ -2,6 +2,7 @@ import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
 
 const { outputFileSync, readdirSync, existsSync, rmdirSync, readJsonSync } = require('fs-extra')
 const { join } = require('path')
+const open = require('open')
 
 const PLUGIN_NAME = 'MpaRspackPlugin'
 
@@ -23,6 +24,11 @@ class MpaRspackPlugin {
       const newEntry = this.createTempFile(entry)
       compiler.options.entry = newEntry
       compiler.options.builtins.html = html
+    })
+    compiler.hooks.done.tap(PLUGIN_NAME, () => {
+      const target = this.userOptions.open
+      if (compiler.options.mode === 'production' || !target) return
+      open(target)
     })
   }
   /** 获取页面级配置 */
