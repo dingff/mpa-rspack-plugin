@@ -1,5 +1,12 @@
 
 
+## [1.3.2](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.1...1.3.2) (2023-03-24)
+
+
+### Bug Fixes
+
+* **deps:** use open@8 ([66cb74e](https://github.com/dingff/mpa-rspack-plugin/commit/66cb74e176aa9694f89ef74774d92cc7764016bc))
+
 ## [1.3.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.0...1.3.1) (2023-03-24)
 
 
