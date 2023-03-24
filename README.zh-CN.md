@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/mpa-rspack-plugin.svg?style=flat)](https://npmjs.org/package/mpa-rspack-plugin)
 
-简体中文 | [English](./README.md)
+[English](./README.md) | 简体中文
 
 ## 安装
 
