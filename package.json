@@ -54,6 +54,7 @@
     "release-it": "^15.7.0"
   },
   "dependencies": {
-    "fs-extra": "^11.1.0"
+    "fs-extra": "^11.1.0",
+    "open": "^9.0.0"
   }
 }
