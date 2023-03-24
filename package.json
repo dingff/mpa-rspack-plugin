@@ -15,7 +15,7 @@
   "keywords": [
     "rspack",
     "mpa",
-    "plugin"
+    "rspack-plugin"
   ],
   "repository": "dingff/mpa-rspack-plugin",
   "authors": [
