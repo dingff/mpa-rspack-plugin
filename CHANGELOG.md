@@ -1,5 +1,12 @@
 
 
+# [1.3.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.2.1...1.3.0) (2023-03-24)
+
+
+### Features
+
+* support open ([890bc54](https://github.com/dingff/mpa-rspack-plugin/commit/890bc545d36dfc3b9deac24be5483bc2046c1396))
+
 ## [1.2.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.2.0...1.2.1) (2023-03-23)
 
 
