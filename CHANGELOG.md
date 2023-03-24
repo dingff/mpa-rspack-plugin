@@ -1,5 +1,12 @@
 
 
+## [1.3.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.0...1.3.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* **deps:** install open ([28f69d2](https://github.com/dingff/mpa-rspack-plugin/commit/28f69d219aeb7fa91275d9f795ed1e88e4ac572c))
+
 # [1.3.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.2.1...1.3.0) (2023-03-24)
 
 
