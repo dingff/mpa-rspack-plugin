@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "fs-extra": "^11.1.0",
-    "open": "^9.0.0"
+    "open": "8.4.2"
   }
 }
