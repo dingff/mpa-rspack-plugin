@@ -1,5 +1,12 @@
 
 
+## [1.3.5](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.4...1.3.5) (2023-03-24)
+
+
+### Bug Fixes
+
+* open browser should only in start ([9312760](https://github.com/dingff/mpa-rspack-plugin/commit/931276049eceb11f5fe07674b5e0cd0ebe3be43a))
+
 ## [1.3.4](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.3...1.3.4) (2023-03-24)
 
 ## [1.3.3](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.2...1.3.3) (2023-03-24)
