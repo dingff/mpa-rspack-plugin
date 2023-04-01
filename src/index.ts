@@ -1,6 +1,6 @@
 import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
 
-const { outputFileSync, readdirSync, existsSync, rmdirSync, readJsonSync } = require('fs-extra')
+const { outputFileSync, readdirSync, existsSync, emptyDirSync, readJsonSync } = require('fs-extra')
 const { join } = require('path')
 const open = require('open')
 
@@ -51,10 +51,7 @@ class MpaRspackPlugin {
     return validPath
   }
   createTempFile(entry: EntryObject) {
-    rmdirSync(join(this.context, this.tempDirectory), {
-      force: true,
-      recursive: true,
-    })
+    emptyDirSync(join(this.context, this.tempDirectory))
     const reactVersion = readJsonSync(join(this.context, 'package.json')).dependencies.react
     const versionReg = /(~|\\^)?18/
     const isReact18 = versionReg.test(reactVersion)
