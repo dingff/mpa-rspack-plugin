@@ -1,5 +1,12 @@
 
 
+## [1.3.9](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.8...1.3.9) (2023-04-01)
+
+
+### Bug Fixes
+
+* path in js ([a08d31f](https://github.com/dingff/mpa-rspack-plugin/commit/a08d31ff0a2b6be50bfd379222b091f75830bfb8))
+
 ## [1.3.8](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.7...1.3.8) (2023-04-01)
 
 
