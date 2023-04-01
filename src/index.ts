@@ -1,7 +1,7 @@
 import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
 
 const { outputFileSync, readdirSync, existsSync, emptyDirSync, readJsonSync } = require('fs-extra')
-const { join } = require('path')
+const { join, normalize } = require('path')
 const open = require('open')
 
 const PLUGIN_NAME = 'MpaRspackPlugin'
@@ -46,7 +46,7 @@ class MpaRspackPlugin {
     let validPath = path
     const absPath = join(this.context, path)
     if (existsSync(absPath)) {
-      validPath = absPath
+      validPath = normalize(absPath)
     }
     return validPath
   }
