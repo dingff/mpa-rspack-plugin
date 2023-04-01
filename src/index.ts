@@ -117,7 +117,7 @@ ${renderer}
           pageConfig.template = join(indexFilePath, '../', pageConfig.template)
         }
         html.push({
-          template: join(__dirname, 'index.ejs'),
+          template: join(__dirname, 'html.ejs'),
           ...this.userOptions.html,
           ...pageConfig,
           templateParameters: {
