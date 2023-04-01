@@ -1,5 +1,12 @@
 
 
+## [1.3.6](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.5...1.3.6) (2023-04-01)
+
+
+### Bug Fixes
+
+* modify the default template ([b2b039e](https://github.com/dingff/mpa-rspack-plugin/commit/b2b039e53e37c35619c0015707bdb460ebb398ec))
+
 ## [1.3.5](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.4...1.3.5) (2023-03-24)
 
 
