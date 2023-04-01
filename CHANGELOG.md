@@ -1,5 +1,12 @@
 
 
+## [1.3.8](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.7...1.3.8) (2023-04-01)
+
+
+### Bug Fixes
+
+* **windows:** normalize path in js ([1f4a6f4](https://github.com/dingff/mpa-rspack-plugin/commit/1f4a6f4e7bee8cac71fd91dcff2538c91fda7b23))
+
 ## [1.3.7](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.6...1.3.7) (2023-04-01)
 
 
