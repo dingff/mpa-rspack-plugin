@@ -1,5 +1,12 @@
 
 
+## [1.3.7](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.6...1.3.7) (2023-04-01)
+
+
+### Bug Fixes
+
+* use emptyDirSync ([579eb7d](https://github.com/dingff/mpa-rspack-plugin/commit/579eb7dd822b0dc88d18b4adcfabb3f7d0a05489))
+
 ## [1.3.6](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.5...1.3.6) (2023-04-01)
 
 
