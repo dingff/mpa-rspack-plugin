@@ -1,7 +1,7 @@
 import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
 
 const { outputFileSync, readdirSync, existsSync, emptyDirSync, readJsonSync } = require('fs-extra')
-const { join, normalize } = require('path')
+const { join } = require('path')
 const open = require('open')
 
 const PLUGIN_NAME = 'MpaRspackPlugin'
@@ -42,11 +42,14 @@ class MpaRspackPlugin {
     }
     return config
   }
-  getValidPathForEntry(path: string) {
-    let validPath = path
+  getPathInJs(absPath: string) {
+    return JSON.stringify(absPath).slice(1, -1)
+  }
+  getAbsPathForEntry(path: string) {
+    let validPath = this.getPathInJs(path)
     const absPath = join(this.context, path)
     if (existsSync(absPath)) {
-      validPath = normalize(absPath)
+      validPath = this.getPathInJs(absPath)
     }
     return validPath
   }
@@ -56,10 +59,10 @@ class MpaRspackPlugin {
     const versionReg = /(~|\\^)?18/
     const isReact18 = versionReg.test(reactVersion)
     const globalImport = this.userOptions.globalImport?.reduce((acc, curr) => {
-      return `${acc}\nimport '${this.getValidPathForEntry(curr)}';`.trimStart()
+      return `${acc}\nimport '${this.getAbsPathForEntry(curr)}';`.trimStart()
     }, '') || ''
     const { layout } = this.userOptions
-    const layoutImport = layout ? `import Layout from '${this.getValidPathForEntry(layout)}';` : ''
+    const layoutImport = layout ? `import Layout from '${this.getAbsPathForEntry(layout)}';` : ''
     const layoutJSX = layout ? '<Layout><App /></Layout>' : '<App />'
     const rootElement = `document.getElementById('${this.userOptions.mountElementId}')`
     const reactDOMSource = isReact18 ? 'react-dom/client' : 'react-dom'
@@ -73,7 +76,7 @@ class MpaRspackPlugin {
 // DO NOT CHANGE IT MANUALLY!
 import React from 'react';
 import ReactDOM from '${reactDOMSource}';
-import App from '${config.import[0]}';${layoutImport && `\n${layoutImport}`}
+import App from '${this.getPathInJs(config.import[0])}';${layoutImport && `\n${layoutImport}`}
 ${globalImport}
 ${renderer}
       `.trimStart()
