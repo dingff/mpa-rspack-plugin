@@ -1,5 +1,12 @@
 
 
+# [1.4.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.9...1.4.0) (2023-04-04)
+
+
+### Features
+
+* reuse existing tab ([bfcdf0e](https://github.com/dingff/mpa-rspack-plugin/commit/bfcdf0e56842f1ae4120f979359b02a3978ded6c))
+
 ## [1.3.9](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.8...1.3.9) (2023-04-01)
 
 
