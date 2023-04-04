@@ -1,8 +1,8 @@
 import { EntryObject, BuiltinsHtml, Options, PageHtml } from './types'
+import openBrowser from './openBrowser'
 
 const { outputFileSync, readdirSync, existsSync, emptyDirSync, readJsonSync } = require('fs-extra')
 const { join } = require('path')
-const open = require('open')
 
 const PLUGIN_NAME = 'MpaRspackPlugin'
 
@@ -30,7 +30,7 @@ class MpaRspackPlugin {
       const target = this.userOptions.open
       if (compiler.options.mode === 'production' || !target || this.isOpen) return
       this.isOpen = true
-      open(target)
+      openBrowser(target)
     })
   }
   /** 获取页面级配置 */
