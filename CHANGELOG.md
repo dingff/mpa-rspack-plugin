@@ -1,5 +1,12 @@
 
 
+## [1.5.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.5.0...1.5.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* clean output only in production ([93eb286](https://github.com/dingff/mpa-rspack-plugin/commit/93eb286ea9fa0efe398e30f3b6b951cf5416594c))
+
 # [1.5.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.4.0...1.5.0) (2023-04-04)
 
 
