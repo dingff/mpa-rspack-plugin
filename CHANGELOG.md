@@ -1,5 +1,12 @@
 
 
+# [1.5.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.4.0...1.5.0) (2023-04-04)
+
+
+### Features
+
+* clean output before emit ([c2bc54b](https://github.com/dingff/mpa-rspack-plugin/commit/c2bc54b4c30b45cf38098c79c8411eb1dd9964a8))
+
 # [1.4.0](https://github.com/dingff/mpa-rspack-plugin/compare/1.3.9...1.4.0) (2023-04-04)
 
 
