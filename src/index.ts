@@ -27,7 +27,9 @@ class MpaRspackPlugin {
       compiler.options.builtins.html = html
     })
     compiler.hooks.emit.tap(PLUGIN_NAME, () => {
-      emptyDirSync(compiler.options.output.path)
+      if (compiler.options.mode === 'production') {
+        emptyDirSync(compiler.options.output.path)
+      }
     })
     compiler.hooks.done.tap(PLUGIN_NAME, () => {
       const target = this.userOptions.open
