@@ -51,12 +51,9 @@ class MpaRspackPlugin {
     return JSON.stringify(absPath).slice(1, -1)
   }
   getAbsPathForEntry(path: string) {
-    let validPath = this.getPathInJs(path)
     const absPath = join(this.context, path)
-    if (existsSync(absPath)) {
-      validPath = this.getPathInJs(absPath)
-    }
-    return validPath
+    const validPath = existsSync(absPath) ? absPath : path
+    return this.getPathInJs(validPath)
   }
   createTempFile(entry: EntryObject) {
     emptyDirSync(join(this.context, this.tempDirectory))
