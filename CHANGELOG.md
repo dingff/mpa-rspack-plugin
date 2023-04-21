@@ -1,5 +1,12 @@
 
 
+## [1.5.2](https://github.com/dingff/mpa-rspack-plugin/compare/1.5.1...1.5.2) (2023-04-21)
+
+
+### Bug Fixes
+
+* optimize getAbsPathForEntry ([e93c300](https://github.com/dingff/mpa-rspack-plugin/commit/e93c30018223e8051042e71069b028ad58a44a9d))
+
 ## [1.5.1](https://github.com/dingff/mpa-rspack-plugin/compare/1.5.0...1.5.1) (2023-04-04)
 
 
