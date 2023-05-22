@@ -1,5 +1,12 @@
 
 
+## [1.5.3](https://github.com/dingff/mpa-rspack-plugin/compare/1.5.2...1.5.3) (2023-05-22)
+
+
+### Bug Fixes
+
+* wrong link in readme ([b81721e](https://github.com/dingff/mpa-rspack-plugin/commit/b81721e5495ecdbd1472d8c11b2048326a32c2bf))
+
 ## [1.5.2](https://github.com/dingff/mpa-rspack-plugin/compare/1.5.1...1.5.2) (2023-04-21)
 
 
