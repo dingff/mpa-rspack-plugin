@@ -24,8 +24,8 @@ module.exports = {
 new MpaRspackPlugin({
   /**
    * Pass to builtins.html, 'chunks' and 'excludedChunks' are controlled by plugin and cannot be modified.
-   * This configuration will apply to each page, so 'filename' is not available, you can use page-level configuration to modify it.
-   * Ref https://www.rspack.dev/en/config/builtins.html#builtinshtml
+   * This will be applied to every page, so 'filename' is not available. Use page-level configuration if you need to modify it.
+   * Please refer to https://www.rspack.dev/config/builtins.html#builtinshtml
    */
   html: {},
   /**
@@ -62,7 +62,7 @@ Create `config.json` at the same level as the page component to declare page-lev
 }
 ```
 ### Layout
-The page component will be passed as a child component to the `Layout` component, and global dependencies can be imported here.
+The page component will be passed as a child component to the `Layout` component.
 ```js
 export default function Layout({ children }) {
   return children
