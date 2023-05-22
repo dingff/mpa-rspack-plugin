@@ -23,9 +23,8 @@ module.exports = {
 ```js
 new MpaRspackPlugin({
   /**
-   * Pass to builtins.html, 'chunks' and 'excludedChunks' are controlled by plugin and cannot be modified.
-   * This will be applied to every page, so 'filename' is not available. Use page-level configuration if you need to modify it.
-   * Please refer to https://www.rspack.dev/config/builtins.html#builtinshtml
+   * Pass to builtins.html
+   * See https://www.rspack.dev/config/builtins.html#builtinshtml
    */
   html: {},
   /**
